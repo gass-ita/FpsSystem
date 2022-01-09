@@ -7,4 +7,5 @@ public class Wallbang : MonoBehaviour
     public bool isWallbengable;
     public float wallMultiplier;
     private float bannana;
+    private bool banan2;
 }
