@@ -1,1 +1,2 @@
 # FpsSystem
+FpsSystem CsGoStyle
