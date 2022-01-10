@@ -10,6 +10,8 @@ public class Shoot : MonoBehaviour
     public bool isFullAuto;
     public Vector2 fireError;
 
+    [SerializeField] bool debugMode;
+
 
     AudioSource audioShoot;
     float nextShoot;
@@ -68,6 +70,7 @@ public class Shoot : MonoBehaviour
 
     Vector3 MovFireError()
     {
+        //
         if (fpsCamera.velocity == Vector3.zero)
         {
             return Vector3.zero;
@@ -82,6 +85,9 @@ public class Shoot : MonoBehaviour
     void startShooting(Vector3 shootingPoint, Vector3 angle, float thisDamage)
     {
         RaycastHit thisHit;
+
+        if (debugMode) Debug.DrawRay(shootingPoint, angle * 10, new Color(255, 0, 0, 255), 10f, false);
+
         if (Physics.Raycast(shootingPoint, angle, out thisHit))
         {
             Target hittedTarget = thisHit.transform.GetComponent<Target>();
@@ -96,6 +102,8 @@ public class Shoot : MonoBehaviour
                 thisDamage *= wallBangCheck.wallMultiplier;
                 startShooting(thisHit.point, angle, thisDamage);
             }
+
+            if (debugMode) Debug.DrawRay(thisHit.point, thisHit.normal, new Color(0, 255, 0, 255), 10f, false);
         }
     }
 

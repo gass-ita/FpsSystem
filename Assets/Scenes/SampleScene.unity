@@ -1119,7 +1119,8 @@ MonoBehaviour:
   damage: 100
   range: 0
   isFullAuto: 1
-  fireError: {x: 5, y: 5}
+  fireError: {x: 0.15, y: 0.15}
+  debugMode: 1
   fpsCamera: {fileID: 963194227}
 --- !u!82 &1765347215
 AudioSource:
